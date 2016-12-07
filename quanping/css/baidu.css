@@ -1,0 +1,220 @@
+body,html{
+    width: 100% ;height: 100%;
+    padding: 0;margin: 0;overflow: hidden;
+}
+/*头部*/
+header{
+    width:100%;
+    height:60px;
+    background:#168bd8;
+    position:fixed;
+    top:0;left:0;
+    z-index:1;
+}
+a{
+    color:#fff;
+    font-family:"微软雅黑";
+    text-decoration:none;
+    font-size:15px;
+}
+.header{
+    width:1000px;
+    height:60px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:nowrap;
+}
+.header .logo{
+    width:120px;
+    height:40px;
+    background:url(../img/5.png) no-repeat 0 0;
+    margin-left:15px;
+}
+.max{
+    display:none;
+}
+.min{
+    display:block;
+    position:relative;
+}
+.min .menuOption{
+    width:20px;
+    height:30px;
+    position:relative;
+    left:900px;
+    top:-25px;
+    cursor:pointer;
+    /*border:1px solid#000;*/
+}
+.min .menuOption .tline{
+    width:100%;
+    height:2px;
+    background:#fff;
+    position:absolute;
+    top:15px;left:0;
+    transition:transform 0.5s ease;
+}
+.min .menu0tion .bline{
+    width:100%;
+    height:2px;
+    background:#fff;
+    position:absolute;
+    top:25px;left:0;
+    transition:transform 0.5s ease;
+}
+
+.min .scene{
+    width:100%;
+    height:40px;
+    position:absolute;
+    top:60px;left:0;
+    perspective:500px;
+}
+.min .scene .menu{
+    position:absolute;
+    top:0;left:0;
+    width:100%;
+    height:100%;
+    transform-style:preserve-3d;
+}
+.min .scene .menu a{
+    display:block;
+    width:100%;
+    height:40px;
+    line-height:40px;
+    text-align:center;
+    color:#fff;
+    background:rgba(0,0,0,0.7);
+    opacity:0;
+    transform-origin:top;
+    transform:rotateX(90deg);
+}
+@keyframes menu{
+    0%{ opacity:0; transform:rotateX(90deg);}
+    100%{ opacity:1; transform:rotateX(0deg);}
+}
+@keyframes menu1{
+    0%{ opacity:1; transform:rotateX(0deg);}
+    100%{ opacity:0; transform:rotateX(90deg);}
+}
+
+@media screen and (min-width:1000px){
+    .max{
+        display:flex;
+    }
+    .min{
+        display:none;
+    }
+    .header .logo{
+        margin-top:15px;
+
+    }
+    .header .index{
+        align-self:center;
+        margin-top:20px;
+    }
+    .header .center{
+        display:none;
+    }
+    .header .last{
+        align-self:flex-end;
+        margin-bottom:8px;
+        font-size:13px;
+    }
+    .header a:nth-of-type(2){
+        margin-left:50px;
+    }
+    .header a:nth-of-type(5){
+        margin-left:230px;
+    }
+}
+
+
+/*内容*/
+#fullpage{
+    width: 100%;height: 100%;
+}
+#fullpage>section{
+    width:100%;height: 100%;
+}
+section:nth-child(1){
+    background:url(../img/1.jpg) no-repeat;
+}
+section:nth-child(2){
+    background:url(../img/2.jpg) no-repeat;
+}
+section:nth-child(3){
+     background:url(../img/3.jpg) no-repeat;
+}
+section:nth-child(4){
+      background:url(../img/4.jpg) no-repeat;
+}
+.clound{
+    width: 200%;height: 100%;
+    position: absolute;  left:0;top: 0;
+    animation:clound 15s linear forwards ;
+}
+.clound .one{
+    width: 50%;height: 100%;
+    background: url(../img/clound1.png);
+    background-size: cover;
+}
+.clound .two{
+    width: 50%;height: 100%;
+    background: url(../img/clound1.png);
+    float: left;
+    background-size: cover;
+}
+
+@keyframes clound {
+    0%{
+        transform: translate(0,0);
+    }
+    100%{
+        transform: translate(1000,0);
+    }
+}
+.ship{
+    width: 242px;height: 228px;
+    position: absolute;left: 306px;top:345px;
+    background: url(../img/ship.png);
+}
+.di{
+    width: 100%;height: 126px;
+    background:url(../img/bg.jpg);
+    position: relative;left:0;top: 535px;
+}
+.di div:nth-child(1){
+    width:265px;height: 175px;
+    position: absolute;left: 0;top:-50px;
+    background: url(../img/hill1.png);
+}
+.di div:nth-child(2){
+    width:63px;height: 78px;
+    /*float: left;*/
+    position: absolute;left: 832px;top:-13px;
+    background: url(../img/hill2.png);
+}
+.di div:nth-child(3){
+     width:260px;height: 175px;
+     /*float: left;*/
+     position: absolute;left: 1050px;top:-47px;
+     background: url(../img/hill3.png);
+ }
+.di div:nth-child(4){
+    width:260px;height: 175px;
+    /*float: left;*/
+    position: relative;left: 1050px;top:-47px;
+    background: url(../img/hill3.png);
+}
+.yuqing{
+    width: 501px;height: 158px;
+    background: url(../img/launch.png);
+    position: relative;top:0px;left: 183px;
+}
+.flight{
+    width: 119px;height: 78px;
+    background: url(../img/flight.png);
+    position: relative;left: 295px;
+}

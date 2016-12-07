@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 500px;height: 500px;border: 1px solid black;
+        }
+    </style>
+    <script>
+//        window.onload=function(){
+//            var box=document.querySelector(".box");
+////            box.ontouchstart=function(){
+////                console.log(1);
+////            }
+////            box.ontouchmove=function(){
+////                console.log(2);
+////            }
+////            box.ontouchend=function(){
+////                console.log(3);
+////            }
+//            var timeOutEvent=0;
+//            box.ontouchstart=function(e){
+//                box.style.border="2px solid blue";
+//                timeOutEvent = setTimeout(function(){
+//                    timeOutEvent = 0;
+//                    box.style.background="red"
+//                },500);
+//                e.preventDefault();
+//            }
+//            box.ontouchmove=function(){
+//                clearTimeout(timeOutEvent);
+//                timeOutEvent = 0;
+//            }
+//            box.ontouchend= function () {
+//                clearTimeout(timeOutEvent);
+//                box.style.background="yellow";
+////                if(timeOutEvent!=0){
+////                }
+//                return false;
+//            }
+
+//        }
+/*tap 轻击
+* hold 长按 touchstart模拟
+* */
+(function (){
+    window.$=function(select){
+        function $(select){
+            if(typeof select=="function"){
+                this.ready(select);
+            }else if(select.nodeType==1){
+                this[0]=select;
+                this.length=1;
+            }else if(select[0].nodeType==1){
+                this.extend(this,select)
+            }else if(typeof select=="string"&&/^<(\w{1,6})>$/.test(select)){
+                var result=/^<(\w{1,6})>$/.exec(select);
+                var ele=result[0];
+                this[0]=document.
+            }else if(typeof select=="string"){
+
+            }
+        }
+        $.prototype={
+            test:function(){
+
+            },
+            ready:function(){
+                document.addEventListener("DOMContentLoaded",function(){
+                    select();
+                })
+            },
+            //扩展插件 插件机制
+            extend:function(obj,obj1){
+                for(var i in obj1){
+                    obj[i]=obj1[i]
+                }
+            },
+            each:function(callback){
+
+            },
+            html:function(val){
+                this.each(function(index,obj){
+                    obj.innerHTML=val;
+                })
+            },
+            css:function(cssParam){
+                this.each(function(index,obj){
+                    for(var i in cssParam){
+                        if(i=="width"||i=="height"){
+
+                        }
+                    }
+                })
+                return this;
+            },
+            click:function(){
+
+            },
+            tap:function(){
+                this.each(function(index,obj){
+                    obj.addEventListener("touchstart",function(){
+
+                    })
+                })
+                return this;
+            },
+            hold:function(callback){
+
+            },
+            tapEnd:function(){
+
+            }
+        }
+        return new $(select);
+    }
+    window.jquery=window.$;
+})();
+/*传入一个函数，在DOMContentLoad事件后执行
+ 接受原生对象，将原生的对象转化为jquery对象*/
+        $(function(){
+
+        })
+    </script>
+</head>
+<body>
+<div class="box"></div>
+</body>
+</html>

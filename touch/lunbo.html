@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="touch.js"></script>
+    <script src="zepto.main.js"></script>
+</head>
+<style>
+    body,html{
+        margin: 0;padding: 0;
+        width:100%;
+        height:100%;
+    }
+    *{
+        box-sizing: border-box;
+    }
+    .box{
+        width:100%;
+        height:500px;
+        position: absolute;
+        top:0;left: 0;
+        font-size: 30px;
+        color: #fff;
+        text-align: center;
+        line-height: 400px;
+        overflow: hidden;
+    }
+    .boxs{
+        width:400%;
+        height:100%;
+    }
+    a{
+        float: left;
+        display: block;
+        width: 25%;
+        height:100%;
+    }
+    a:nth-child(1){
+        background: #e9322d;
+    }
+    a:nth-child(2){
+        background: #2d78f4;
+    }
+    a:nth-child(3){
+        background: #E4229A;
+    }
+    a:nth-child(4){
+        background: #ec9696;
+    }
+</style>
+
+<body>
+<div class="box">
+    <div class="boxs">
+        <a href="javascript:;">1</a>
+        <a href="javascript:;">2</a>
+        <a href="javascript:;">3</a>
+        <a href="javascript:;">4</a>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var marginl;
+    var num=0;
+    var width=$(window).width();
+//        var obj=document.getBoundingClientRect();
+    $(".box").mousedown(function(e){
+        e.preventDefault()
+    })
+    $(".box").mouseup(function(e){
+        e.preventDefault()
+    })
+    touch.on("body","dragstart",".boxs",function(){
+        $(".boxs").css("transform","none");
+        marginl=parseInt($(".boxs").css("marginLeft"))?parseInt($(".boxs").css("marginLeft")):0;
+    })
+    touch.on("body","drag",".boxs",function(e){
+        $(".boxs").css({
+            marginLeft:e.x+marginl
+        })
+    })
+    touch.on("body","dragend",".boxs",function(e){
+        if(Math.abs(e.x)>200){
+            if(e.direction=="left"){
+                num++;
+                if(num==$(".boxs a").length){
+                    num=$(".boxs a").length-1;
+                }
+            }else if(e.direction=="right"){
+                num--;
+                if(num==-1){
+                    num=0;
+                }
+            }
+            $(".boxs").css({
+                marginLeft:-num*width,
+                transform:"marigin 1s ease"
+            })
+        }else{
+            $(".boxs").css({
+                marginLeft:-num*width,
+                transform:"marigin 1s ease"
+            })
+        }
+    })
+</script>
